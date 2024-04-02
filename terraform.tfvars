@@ -27,11 +27,16 @@ infinite_linux_vms = {
         availability_set_id            =  null
         proximity_placement_group_id   =  null
         computer_name                  = "dnalbopsndbx05"
-        size                           =  "Standard_B2s"
+        size                           =  "Standard_B2ms"
         license_type                   =  null
-        tags				= {
-                                
-                               }
+        tags = {
+            Environment: "devqa",
+            App_Role: "opsndbx",
+            System_State: "Live",
+            Bus_Owner: "Bonnie.Kantor@infinite.com",
+            Sys_Admin: "sudhakar.panga@infinite.com",
+            Data_Class: "Group_2"
+        }
         user_data                       = null
         patch_mode                      = "ImageDefault"
         admin_username                  = "sysadmin"
@@ -51,7 +56,7 @@ infinite_linux_vms = {
         source_image_reference_offer     = ""
         source_image_reference_sku       = ""
         source_image_reference_version   =  ""
-        source_image_id                  = "/subscriptions/2fb84a78-d4b0-453d-b228-96733f9ef9df/resourceGroups/rg-devqa-us/providers/Microsoft.Compute/galleries/rheltaslabs/images/RHEL8.7-63G/versions/1.0.1"
+        source_image_id                  = "/subscriptions/2fb84a78-d4b0-453d-b228-96733f9ef9df/resourceGroups/rg-devqa-us/providers/Microsoft.Compute/galleries/rheltaslabs/images/AzimageRHEL7963G-new/versions/1.0.0"
         timezone = "America/New_York"
          
     }
