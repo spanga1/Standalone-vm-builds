@@ -104,16 +104,11 @@ variable "target_vms" {
         data_disk_caching              = string
         data_disk_create_option        = string
         data_disk_source_uri           = string
-
       }))
       source_image_reference_publisher = string
       source_image_reference_offer     = string
       source_image_reference_sku       = string
       source_image_reference_version   = string
       user_data                        = string
-      boot_diagnostics_storage_uri = string
     }))
-  
 }
-
-
