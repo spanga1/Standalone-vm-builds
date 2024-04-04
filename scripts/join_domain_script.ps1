@@ -2,7 +2,7 @@
 param (
     [string]$ModulePath
 )
-$domainName = "ops-dev.pa-dev.knxa"
+$domainName = "xxxxxxxxxxx"
 $adminUsername = "xxxxxxxxx"
 $adminPassword = ConvertTo-SecureString "xxxxxxxxxx" -AsPlainText -Force
 $credentials = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword)
