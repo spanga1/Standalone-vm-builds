@@ -3,8 +3,8 @@ param (
     [string]$ModulePath
 )
 $domainName = "ops-dev.pa-dev.knxa"
-$adminUsername = "svc-domainadd"
-$adminPassword = ConvertTo-SecureString "4rfvBGT%4rfvBGT%" -AsPlainText -Force
+$adminUsername = "xxxxxxxxx"
+$adminPassword = ConvertTo-SecureString "xxxxxxxxxx" -AsPlainText -Force
 $credentials = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword)
 
 # Join the domain
