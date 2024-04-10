@@ -64,9 +64,9 @@ infinite_windows_vm_standalone = {
         source_image_reference_version   =  ""
         source_image_id                  = "/subscriptions/2fb84a78-d4b0-453d-b228-96733f9ef9df/resourceGroups/rg-devqa-us/providers/Microsoft.Compute/galleries/WindowsImage2016/images/windows2016std/versions/1.0.1"
         timezone = "Eastern Standard Time"
-        active_directory_domain   = "corp.brassring.com"
-        active_directory_username = "svc-domainadd"
-        active_directory_password = "4rfvBGT%4rfvBGT%"
+        active_directory_domain   = "xxxxxxxxx"
+        active_directory_username = "xxxxxxx"
+        active_directory_password = "xxxxxxxxx"
          
     }
 
