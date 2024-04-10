@@ -79,7 +79,6 @@ variable "enable_automatic_updates" {
   type        = bool
 }
 
-
 variable "admin_username" {
   description = "Admin username for VM login"
   type        = string
@@ -181,86 +180,17 @@ variable "boot_diagnostics_storage_uri" {
   type = string
 }
 
-
-
-
-
-
-/* variable "network_security_group_id" {
-  description = "ID of NSG to be associated with this VM"
-  type        = string
-} */
-
-/*
-variable "gallery_image_name" {
-  description = "gallery_image_name of VM"
+variable "active_directory_domain" {
+  description = "Active Directory Domain to join"
   type        = string
 }
 
-variable "azure_compute_gallery_name" {
-  description = "Azure compute gallery name"
+variable "active_directory_username" {
+  description = "Username for joining Active Directory Domain"
   type        = string
 }
 
-variable "public_ip_name"{
-  description = "Public IP Name allocated to VM"
+variable "active_directory_password" {
+  description = "Password for joining Active Directory Domain"
   type        = string
 }
-
-variable "public_ip_address_allocation" {
-  description = "Type of Public IP allocation to VM"
-  type        = string
-}
-
- variable "data_disk_name" {
-  description = "Name of data disk to be attached to VM"
-  type        = string
-}
-
-variable "data_disk_storage_account_type" {
-  description = "Storage type for the data disk"
-  type        = string
-}
-
-variable "data_disk_create_option" {
-  #description check
-  description = "Create empty disk or attach existing disk"
-  type        = string
-}
-
-variable "data_disk_size_gb" {
-  description = "Data disk size in GB"
-  type        = number
-}
-
-variable "data_disk_lun_number" {
-  description = "LUN number to be assigned to data disk"
-  type        = string
-}
-
-variable "data_disk_caching" {
-  description = "Type of data disk caching"
-  type        = string
-} */
-
-/*variable "vnet_name" {
-  description = "Name of the VPC network"
-  type        = string
-}
-
-variable "address_space" {
-  description = "Address space of the Virtual Network created"
-  type        = any
-}
-
-variable "subnet_prefixes" {
-  description = "Prefix of the Subnetwork created"
-  type        = any
-}
-
-variable "subnet_names" {
-  description = "Name of the Subnetwork created"
-  type        = string
-}
-*/
-
