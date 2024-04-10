@@ -135,7 +135,6 @@ variable "infinite_windows_vm_standalone" {
     public_ip_address_allocation = string
     boot_diagnostics_storage_uri = string
 
-
     data_disks = map(object({
       data_disk_name                 = string
       data_disk_storage_account_type = string
@@ -145,7 +144,9 @@ variable "infinite_windows_vm_standalone" {
       data_disk_create_option        = string
       data_disk_source_uri           = string
     }))
-
+    active_directory_domain          = string
+    active_directory_username        = string
+    active_directory_password        = string    
   }))
 
 }
