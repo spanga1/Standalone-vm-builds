@@ -98,7 +98,6 @@ module "infinite_linux_vm" {
 module "infinite_windows_vm_standalone" {
   source = "./Modules/infinite_windows_vm_standalone"
   depends_on = [
-    #azurerm_resource_group.infinite-rg,
     azurerm_availability_set.infinite-availability-set,
     azurerm_proximity_placement_group.infinite-ppg
   ]
@@ -109,8 +108,7 @@ module "infinite_windows_vm_standalone" {
   zone                          = each.value.zone
   nic_name                      = each.value.nic_name
   enable_accelerated_networking = each.value.enable_accelerated_networking
-  #subnet_id                     = module.vnet[each.value.vnet_name].subnet_ids[each.value.subnet_names]
-  subnet_id                    = each.value.subnet_id
+  subnet_id                     = each.value.subnet_id
   proximity_placement_group_id = (each.value.proximity_placement_group_name != null) ? azurerm_proximity_placement_group.infinite-ppg[each.value.proximity_placement_group_name].id : each.value.proximity_placement_group_id
 
   availability_set_id       = (each.value.availability_set_name != null) ? azurerm_availability_set.infinite-availability-set[each.value.availability_set_name].id : each.value.availability_set_id
@@ -124,7 +122,7 @@ module "infinite_windows_vm_standalone" {
   size                            = each.value.size
 
   patch_mode               = each.value.patch_mode
-  enable_automatic_updates = each.value.enable_automatic_updates
+  enable_automatic_updates   = each.value.enable_automatic_updates
   admin_username           = each.value.admin_username
   admin_password           = each.value.admin_password
   license_type = each.value.license_type
@@ -149,5 +147,25 @@ module "infinite_windows_vm_standalone" {
   public_ip_address_allocation = each.value.public_ip_address_allocation
   public_ip_name               = each.value.public_ip_name
   boot_diagnostics_storage_uri = each.value.boot_diagnostics_storage_uri
-
+  active_directory_domain   = each.value.active_directory_domain
+  active_directory_username = each.value.active_directory_username
+  active_directory_password = each.value.active_directory_password
 }
+
+/*
+module "domain-join" {
+  source  = "kumarvna/domain-join/azurerm"
+  version = "1.1.0"
+
+  for_each = var.infinite_windows_vm_standalone
+
+  virtual_machine_id        = module.infinite_windows_vm_standalone[each.key].id
+  active_directory_domain   = each.value.active_directory_domain
+  active_directory_username = each.value.active_directory_username
+  active_directory_password = each.value.active_directory_password
+
+  depends_on = [
+    azurerm_windows_virtual_machine.infinite_windows_vm_standalone
+  ]  
+}
+*/
