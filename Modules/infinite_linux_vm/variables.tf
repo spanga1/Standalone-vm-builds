@@ -73,6 +73,7 @@ variable "patch_mode" {
   type        = string
 }
 
+
 variable "admin_username" {
   description = "Admin username for VM login"
   type        = string
@@ -190,10 +191,22 @@ variable "boot_diagnostics_storage_uri" {
   type = string
 }
 
+/*
+variable "active_directory_domain" {
+  description = "Active Directory Domain to join"
+  type        = string
+}
 
+variable "active_directory_username" {
+  description = "Username for joining Active Directory Domain"
+  type        = string
+}
 
-
-
+variable "active_directory_password" {
+  description = "Password for joining Active Directory Domain"
+  type        = string
+}
+*/
 
 /*
 
