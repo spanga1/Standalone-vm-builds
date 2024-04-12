@@ -91,7 +91,9 @@ module "infinite_linux_vm" {
   public_ip_address_allocation = each.value.public_ip_address_allocation
   public_ip_name               = each.value.public_ip_name
   boot_diagnostics_storage_uri = each.value.boot_diagnostics_storage_uri
-
+  #active_directory_domain   = each.value.active_directory_domain
+  #active_directory_username = each.value.active_directory_username
+  #active_directory_password = each.value.active_directory_password  
 }
 
 
@@ -150,6 +152,10 @@ module "infinite_windows_vm_standalone" {
   active_directory_domain   = each.value.active_directory_domain
   active_directory_username = each.value.active_directory_username
   active_directory_password = each.value.active_directory_password
+  #ivanti_api_endpoint       = each.value.ivanti_api_endpoint
+  #ivanti_username            = each.value.ivanti_username
+  #ivanti_password            = each.value.ivanti_password
+  #server_name               = each.value.server_name
 }
 
 /*
