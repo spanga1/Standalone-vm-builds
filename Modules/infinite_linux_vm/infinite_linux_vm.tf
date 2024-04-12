@@ -153,5 +153,25 @@ resource "azurerm_virtual_machine_data_disk_attachment" "infinite_disk_attachmen
   ]
 }
 
+/*
+resource "null_resource" "domain_join" {
+  depends_on = [azurerm_linux_virtual_machine.infinite_linux_vm]
 
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      host        = azurerm_linux_virtual_machine.infinite_linux_vm.private_ip_address
+      user        = var.admin_username
+      password    = var.admin_password
+      timeout     = "2m"
+    }
 
+    inline = [
+      # Join Domain
+      "sudo realm join --user=${var.active_directory_username} ${var.active_directory_domain}",
+      # Restart services if necessary
+      "sudo systemctl restart sssd"
+    ]
+  }
+}
+*/
