@@ -82,6 +82,9 @@ variable "infinite_linux_vms" {
       data_disk_create_option        = string
       data_disk_source_uri           = string
     }))
+#    active_directory_domain          = string
+#    active_directory_username        = string
+#    active_directory_password        = string        
   }))
 
 }
@@ -146,7 +149,11 @@ variable "infinite_windows_vm_standalone" {
     }))
     active_directory_domain          = string
     active_directory_username        = string
-    active_directory_password        = string    
+    active_directory_password        = string
+    #ivanti_api_endpoint              = string
+    #ivanti_username                  = string
+    #ivanti_password                  = string
+    #server_name                      = string
   }))
 
 }
