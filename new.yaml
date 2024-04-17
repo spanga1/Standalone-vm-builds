@@ -1,0 +1,46 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+# Azure Default hostname 
+pool:
+  name: Dev-QA
+  demands:
+  - agent.name -equals DNAHBOPBUILD01
+
+jobs:
+- job: TerraformJob
+  displayName: 'Terraform Deployment'
+  steps:
+  - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@2
+    displayName: 'Use Terraform latest'
+
+  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV4@4
+    displayName: 'Terraform : init'
+    inputs:
+      backendServiceArm: 'Infinite Talent Dev/QA (2fb84a78-d4b0-453d-b228-96733f9ef9df)'
+      backendAzureRmResourceGroupName: 'rg-azuba-ICS'
+      backendAzureRmStorageAccountName: 'nageshtest1'
+      backendAzureRmContainerName: 'terraform'
+      backendAzureRmKey: 'terraform.tfstate'
+
+  - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@2
+    displayName: 'terraform validate'
+
+  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV3@3
+    displayName: 'Terraform : plan'
+    inputs:
+      command: plan
+      environmentServiceNameAzureRM: 'Infinite Talent Dev/QA (2fb84a78-d4b0-453d-b228-96733f9ef9df)'
+      backendServiceArm: 'Infinite Talent Dev/QA (2fb84a78-d4b0-453d-b228-96733f9ef9df)'
+
+  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV3@3
+    displayName: 'Terraform : apply'
+    inputs:
+      command: apply
+      commandOptions: '--auto-approve'
+      environmentServiceNameAzureRM: 'Infinite Talent Dev/QA (2fb84a78-d4b0-453d-b228-96733f9ef9df)'
