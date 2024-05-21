@@ -59,9 +59,9 @@ infinite_linux_vms = {
         source_image_reference_version   =  ""
         source_image_id                  = "/subscriptions/2fb84a78-d4b0-453d-b228-96733f9ef9df/resourceGroups/rg-devqa-us/providers/Microsoft.Compute/galleries/rheltaslabs/images/AzimageRHEL7963G-new/versions/1.0.0"
         timezone = "America/New_York"
-        #active_directory_domain   = "corp.brassring.com"
-        #active_directory_username = "svc-domainadd"
-        #active_directory_password = "4rfvBGT%4rfvBGT%"         
+        #active_directory_domain   = "xxxxxxxxxxx"
+        #active_directory_username = "xxxxxxxxxxxxx"
+        #active_directory_password = "xxxxxxxx"         
     }
 */
 
